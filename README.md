@@ -65,53 +65,39 @@ A real-time multiplayer Connect Four game built with **Go** backend and **vanill
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+### Quick Start (Local Development)
 
-```bash
-git clone https://github.com/yourusername/4-in-a-row.git
-cd 4-in-a-row
-```
+1. **Clone repository:**
+   ```bash
+   git clone https://github.com/TanmayGupta17/stackwin.git
+   cd stackwin
+   ```
 
-### 2. Start Services with Docker Compose
+2. **Start services:**
+   ```bash
+   docker-compose up -d
+   ```
 
-```bash
-docker-compose up -d
-```
+3. **Run backend:**
+   ```bash
+   cd backend
+   go run main.go
+   ```
 
-This will start:
-- PostgreSQL database (port 5432)
-- Zookeeper (port 2181)
-- Kafka (port 9092)
+4. **Open game:**
+   Navigate to http://localhost:8080
 
-### 3. Verify Services are Running
+### Production Deployment
 
-```bash
-docker-compose ps
-```
+**Deploy to Railway in 5 minutes!** 🚀
 
-You should see all three containers running.
+See [HOSTING.md](HOSTING.md) for complete deployment guide.
 
-### 4. Install Go Dependencies
+Or click the button below to deploy directly:
 
-```bash
-cd backend
-go mod download
-```
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?code=TanmayGupta17/stackwin)
 
-### 5. Run the Backend Server
-
-```bash
-go run main.go
-```
-
-You should see:
-```
-2025/12/14 20:00:00 Server starting on :8080
-```
-
-### 6. Open the Game in Your Browser
-
-Navigate to: **http://localhost:8080**
+### Detailed Setup (Local Development)
 
 ## How to Play
 
