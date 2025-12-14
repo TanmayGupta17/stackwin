@@ -17,8 +17,14 @@ type Config struct {
 func Load() *Config {
 	godotenv.Load()
 
+	port := getEnv("PORT", "8080")
+	// Ensure port has a colon prefix
+	if port[0] != ':' {
+		port = ":" + port
+	}
+
 	return &Config{
-		Port:               getEnv("PORT", ":8080"),
+		Port:               port,
 		DatabaseURL:        getEnv("DATABASE_URL", "postgres://user:pass@localhost/4inrow"),
 		KafkaBrokers:       []string{getEnv("KAFKA_BROKERS", "localhost:9092")},
 		KafkaTopic:         getEnv("KAFKA_TOPIC", "game-events"),
