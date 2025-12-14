@@ -24,7 +24,7 @@ func main() {
 	// producer := kafka.NewKafkaProducer(cfg.KafkaBrokers, cfg.KafkaTopic)
 	// defer producer.Close()
 	// analyticsService := services.NewAnalyticsService(producer)
-	
+
 	// For now, create a nil-safe analytics service
 	analyticsService = services.NewAnalyticsService(nil)
 
@@ -41,5 +41,8 @@ func main() {
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./frontend")))
 
 	log.Printf("Server starting on %s\n", cfg.Port)
-	http.ListenAndServe(cfg.Port, router)
+	err := http.ListenAndServe(cfg.Port, router)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

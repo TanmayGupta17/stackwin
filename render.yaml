@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: 4-in-a-row
+    runtime: go
+    rootDir: backend
+    buildCommand: go build -o server main.go
+    startCommand: ./server
+    port: 8080
+    envVars:
+      - key: GOTOOLCHAIN
+        value: go1.25.5
