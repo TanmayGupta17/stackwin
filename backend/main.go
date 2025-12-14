@@ -38,7 +38,7 @@ func main() {
 	router.HandleFunc("/ws", gameHandler.HandleWebSocket)
 
 	// Static files
-	router.PathPrefix("/").Handler(http.FileServer(http.Dir("../frontend")))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./frontend")))
 
 	log.Printf("Server starting on %s\n", cfg.Port)
 	http.ListenAndServe(cfg.Port, router)
